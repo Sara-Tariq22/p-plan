@@ -1,12 +1,31 @@
+Project Title
 # P-PLAN 📱💸
+P-PLAN: Personal Finance & Bill-Tracking App
 
-A clean, intuitive personal finance and bill-tracking mobile application built with Flutter. P-PLAN helps users manage their available balance, track monthly bills, and monitor active subscriptions all in one place.
+Research Problem
+People often struggle to track their true disposable income because they forget to mentally deduct upcoming bills and subscriptions from their bank balance. Existing financial apps are often too complex or require linking sensitive bank accounts, creating a need for a simple, manual tracker.
 
-## 🌟 Features
+Motivation
+This project provides a simple, privacy-focused tool for everyday financial tracking. By automatically deducting entered bills and subscriptions from the user's main balance, the app ensures users always see exactly what they can actually afford, helping to prevent overspending.
 
-*   **Interactive Dashboard:** View your current available balance, total bill expenses, and total subscription expenses at a glance.
-*   **Dynamic Balance Management:** Easily add or remove funds from your main balance using a quick pop-up dialog.
-*   **Bill Tracking:** Add custom bills (e.g., Water, Electricity) with specific amounts.
-*   **Subscription Tracking:** Log your monthly subscriptions (e.g., Netflix, Spotify).
-*   **Auto-Calculation:** Whenever a new bill or subscription is added, the app automatically updates your total expenses and dynamically deducts the amount from your available balance.
-*   **Clean UI/UX:** Designed with a beautiful, modern green color palette and smooth navigation.
+Control Flow
+Launch: App opens to the Welcome Screen. User taps "Enter".
+
+Dashboard: Loads the main hub, showing a starting balance of 0.0, and empty bill/subscription lists.
+
+Update Balance: User taps "+/-" to manually add or remove funds via a pop-up.
+
+Add Expense: User taps "Add Bill" or "Add Sub", navigating to a new data-entry screen.
+
+Auto-Calculate: User saves the expense. The app returns to the Dashboard, adds the item to the list, and instantly deducts the cost from the main balance.
+
+Implementation Strategy
+Tech Stack: Built using Dart and the Flutter framework.
+
+File Structure: Code is divided into modular files (e.g., dashboard_screen.dart, bills_screen.dart) to keep it clean and organized.
+
+Data Models: Uses custom Dart classes (BillItem, SubscriptionItem) to store the name and amount of each expense.
+
+State Management: Relies on Flutter's native StatefulWidget. The DashboardScreen holds the "master memory" (the main state).
+
+Data Flow: Uses "callback functions" to pass data from the individual expense screens back up to the Dashboard so the math updates in real-time.
